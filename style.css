@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Hide default cursor */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000; /* Black background like in image */
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.content {
+    text-align: center;
+    z-index: 1;
+}
+
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow interaction with elements underneath */
+    z-index: 9999;
+}
+
+.particle {
+    position: absolute;
+    background-color: #ffffff; /* White particles */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+}
+
+/* Create custom cursor */
+.cursor {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10001;
+    mix-blend-mode: difference; /* Makes cursor visible on any background */
+}
+
+.particle {
+    position: absolute;
+    background-color: #ffffff; /* White particles */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+}
+
+/* Particle types */
+.explosion-particle {
+    box-shadow: 0 0 4px rgba(55, 7, 247, 0.8);
+}
+
+/* Add this to animate background particles */
+.background-particle {
+    position: fixed;
+    will-change: transform;
+}
+
+/* Custom cursor with trail */
+.cursor {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10001;
+    box-shadow: 0 0 10px 2px rgba(28, 237, 5, 0.8);
+}
+
+/* Cursor outer ring */
+.cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(237, 10, 10, 0.5);
+    transform: translate(-50%, -50%);
+}
